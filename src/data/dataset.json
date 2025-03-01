@@ -1,0 +1,110 @@
+{
+  "lectures": [
+    {
+      "subject": "Programming",
+      "topics": [
+        {
+          "name": "What is JDK, JVM, JRE, javac, Byte code, JIT? Complete Execution Process!",
+          "date": "Feb 25, 2025",
+          "youtube": [
+            {
+              "title": "Java Execution Process Explained",
+              "link": "https://youtu.be/0vvCgTM-tLI"
+            }
+          ]
+        },
+        {
+          "name": "Install IntelliJ IDEA in 5 Minutes! 🚀 Easiest Way for Beginners (2025 Windows Guide)",
+          "date": "Feb 20, 2025",
+          "youtube": [
+            {
+              "title": "Install IntelliJ IDEA",
+              "link": "https://youtu.be/0vvCgTM-tLI"
+            }
+          ]
+        },
+        {
+          "name": "Java Hello World Program",
+          "date": "Feb 18, 2025",
+          "youtube": [
+            {
+              "title": "Understanding the skeleton of a Java Program | What is main method in Java ?",
+              "link": "https://youtu.be/0vvCgTM-tLI"
+            }
+          ]
+        },
+        {
+          "name": "Java Data Types",
+          "date": "Feb 15, 2025",
+          "youtube": [
+            {
+              "title": "Primitive Data Types in Java in Hindi | Byte, Short, Int, Long, Float, Double, Char & Boolean",
+              "link": "https://youtu.be/0vvCgTM-tLI"
+            }
+          ]
+        },
+        {
+          "name": "Java MultiThreading Zero to Hero Masterclass 2024",
+          "date": "Feb 10, 2025",
+          "youtube": [
+            {
+              "title": "Introduction to Java MultiThreading",
+              "link": "https://www.youtube.com/watch?v=091vJWjl1A4"
+            }
+          ]
+        },
+        {
+          "name": "Java Exception Handling",
+          "date": "Feb 7, 2025",
+          "youtube": [
+            {
+              "title": "Java Exception Handling | Exception Handling in Java | Java Exceptions",
+              "link": "https://www.youtube.com/watch?v=091vJWjl1A4"
+            }
+          ]
+        },
+        {
+          "name": "Java Thread Class",
+          "date": "Feb 7, 2025",
+          "youtube": [
+            {
+              "title": "Thread Class and Runnable Interface",
+               "link": "https://youtu.be/6dqAwh2MCg0?si=Dbdtju-6IcFoS24D"
+            }
+          ]
+        },
+        {
+          "name": "Program Logic",
+          "date": "Feb 7, 2025",
+          "youtube": [
+            {
+              "title": "How to build a program logic in Java",
+  "link": "https://youtu.be/HbNfCM4ilBQ?si=9cGlxHNrHBaM_iTw"
+            }
+          ]
+        },
+        {
+          "name": "Figma",
+          "date": "Feb 7, 2025",
+          "youtube": [
+            {
+             "title": "Figma tutorial| swipe animation/prototypesand transitions",
+           "link": "https://youtu.be/3TkgS5WIFi4?si=K0g7G4fRumlxvwx-"
+            }
+          ]
+        },
+        {
+          "name": "Figma Tutorial",
+          "date": "Feb 7, 2025",
+          "youtube": [
+            {
+            "title": "Figma tutorial| swipe animation/prototypes",
+             "link":"https://youtu.be/3TkgS5WIFi4?si=K0g7G4fRumlxvwx-"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
