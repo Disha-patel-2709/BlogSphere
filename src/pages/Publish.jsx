@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -31,8 +30,8 @@ function Publish() {
 
   const handleFileSelect = (file) => {
     setSelectedFile(file);
-    setFormData(prev => ({ ...prev, thumbnail: file }));
-    
+    setFormData((prev) => ({ ...prev, thumbnail: file }));
+
     // Create a preview URL for the image
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -43,31 +42,31 @@ function Publish() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleCategoryChange = (value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      category: value
+      category: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Validate form
     if (!formData.title || !formData.excerpt || !formData.content || !formData.category || !thumbnailPreview) {
       setError("Please fill in all fields and upload a thumbnail");
       return;
     }
-    
+
     // Get existing publications from localStorage or initialize empty array
     const existingPublications = JSON.parse(localStorage.getItem("publications")) || [];
-    
+
     // Create new publication object
     const newPublication = {
       id: Date.now().toString(),
@@ -76,32 +75,32 @@ function Publish() {
       excerpt: formData.excerpt,
       categories: [formData.category],
       image: thumbnailPreview,
-      date: new Date().toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
+      date: new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
     };
-    
+
     // Add new publication to array
     const updatedPublications = [newPublication, ...existingPublications];
-    
+
     // Save to localStorage
     localStorage.setItem("publications", JSON.stringify(updatedPublications));
-    
+
     // Reset form
     setFormData({
       title: "",
       excerpt: "",
       content: "",
       category: "",
-      thumbnail: null
+      thumbnail: null,
     });
     setSelectedFile(null);
     setThumbnailPreview(null);
-    
-    // Navigate to publications page
-    navigate("/publication");
+
+    // Navigate to correct page
+    navigate("/publications"); // Changed from "/publication" to "/publications"
   };
 
   return (
@@ -112,26 +111,17 @@ function Publish() {
     >
       <div className="w-6/12 max-w-[1500px] p-6">
         <form onSubmit={handleSubmit}>
-          <label className="block text-md font-normal mb-2">
-            Select Thumbnail
-          </label>
+          <label className="block text-md font-normal mb-2">Select Thumbnail</label>
 
           <FileUpload
             title="Click to upload"
             subtitle="or drag and drop"
             maxSize={2}
-            acceptedFileTypes={[
-              "image/svg+xml",
-              "image/png",
-              "image/jpeg",
-              "image/gif",
-            ]}
+            acceptedFileTypes={["image/svg+xml", "image/png", "image/jpeg", "image/gif"]}
             onFileSelect={handleFileSelect}
           />
 
-          <p className="text-sm text-gray-400 mt-4">
-            Select a thumbnail for the publication (MAX 2MB)
-          </p>
+          <p className="text-sm text-gray-400 mt-4">Select a thumbnail for the publication (MAX 2MB)</p>
 
           <div className="mt-8">
             <label className="block text-sm font-normal mb-2">Title</label>
@@ -142,14 +132,10 @@ function Publish() {
               onChange={handleInputChange}
               placeholder="Heading"
               className={`w-full flex h-10 rounded-md border border-input bg-transparent text-lg shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring px-4 py-2 ${
-                isDark
-                  ? "text-white border-gray-600"
-                  : "text-black border-gray-400"
+                isDark ? "text-white border-gray-600" : "text-black border-gray-400"
               }`}
             />
-            <p className="text-sm text-gray-400 mt-1">
-              This will be the title of the publication
-            </p>
+            <p className="text-sm text-gray-400 mt-1">This will be the title of the publication</p>
           </div>
 
           <div className="mt-6">
@@ -161,21 +147,14 @@ function Publish() {
               onChange={handleInputChange}
               placeholder="This publication highlights some XYZ topic."
               className={`w-full flex h-10 rounded-md border border-input bg-transparent text-lg shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring px-4 py-2 ${
-                isDark
-                  ? "text-white border-gray-600"
-                  : "text-black border-gray-400"
+                isDark ? "text-white border-gray-600" : "text-black border-gray-400"
               }`}
             />
-
-            <p className="text-sm text-gray-400 mt-1">
-              This is your short description text
-            </p>
+            <p className="text-sm text-gray-400 mt-1">This is your short description text</p>
           </div>
 
           <div className="mt-8">
-            <label className="block text-sm font-normal mb-2">
-              Publication content
-            </label>
+            <label className="block text-sm font-normal mb-2">Publication content</label>
 
             <textarea
               name="content"
@@ -183,20 +162,14 @@ function Publish() {
               onChange={handleInputChange}
               placeholder="Type your content here..."
               className={`w-full flex h-[120px] rounded-md border border-input bg-transparent text-lg shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring px-4 py-2 ${
-                isDark
-                  ? "text-white border-gray-600"
-                  : "text-black border-gray-400"
+                isDark ? "text-white border-gray-600" : "text-black border-gray-400"
               }`}
             />
-            <p className="text-sm text-gray-400 mt-1">
-              (type / to begin writing && drag(up/down) if you want to reorder the things)
-            </p>
+            <p className="text-sm text-gray-400 mt-1">(type / to begin writing && drag(up/down) if you want to reorder the things)</p>
           </div>
-          
+
           <div className="mt-8">
-            <label className="block text-sm font-normal mb-2">
-              Select Categories
-            </label>
+            <label className="block text-sm font-normal mb-2">Select Categories</label>
             <Select onValueChange={handleCategoryChange} value={formData.category}>
               <SelectTrigger>
                 <SelectValue placeholder="Select category" />
@@ -214,13 +187,13 @@ function Publish() {
               </SelectContent>
             </Select>
           </div>
-          
-          {error && (
-            <p className="mt-4 text-red-500 text-sm">{error}</p>
-          )}
-          
+
+          {error && <p className="mt-4 text-red-500 text-sm">{error}</p>}
+
           <div className="mt-8 mb-6">
-            <Button type="submit" className="w-full">Submit</Button>
+            <Button type="submit" className="w-full">
+              Submit
+            </Button>
           </div>
         </form>
       </div>
